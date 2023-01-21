@@ -5,6 +5,9 @@ module.exports = {
       colors: {
       'Theme': '#22aeff',
       },
+      spacing: {
+        'builder': '30rem',
+      },
     },
   },
   plugins: [],

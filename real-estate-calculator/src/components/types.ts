@@ -6,9 +6,11 @@ export type Loan = {
   InterestRate: string;
   LoanTerm: number;
   MonthlyPayment: number;
+  ClosingCosts: string;
 };
 
 export type Unit = {
+  NumberOfUnits: number;
   Bedrooms: number;
   Bathrooms: number;
   SquareFeet: number;
@@ -23,6 +25,28 @@ export type Building = {
   SquareFeetTotal: number;
   CurrentRentTotal: number;
   MarketRentTotal: number;
+  RealCurrentRentTotal: number;
+  RealMarketRentTotal: number;
+};
+
+export type Expenses = {
+  Vacancy: number;
+  VacancyType: ExpenseCostType;
+  PropetyManagement: number;
+  PropetyManagementType: ExpenseCostType;
+  PropetyTaxes: number;
+  PropetyTaxesType: ExpenseCostType;
+  Insurance: number;
+  InsuranceType: ExpenseCostType;
+  OwnerPaidUtilities: number;
+  OwnerPaidUtilitiesType: ExpenseCostType;
+  Maintenance: number;
+  MaintenanceType: ExpenseCostType;
+  ExpensesTotal: number;
+};
+export type Expense = {
+  value: number;
+  type: ExpenseCostType;
 };
 
 export enum LoanCostType {
@@ -33,5 +57,5 @@ export enum LoanCostType {
 export enum ExpenseCostType {
   percent = "Percent",
   perSf = "Per Sf",
-  total = "Total",
+  dollars = "Dollars",
 }
