@@ -65,19 +65,21 @@ export function BuildingBuilder(props: BuildingBuilderProps): JSX.Element {
   ));
 
   return (
-    <div className="table-wrp block max-h-builder overflow-y-scroll rounded-lg border-l-Theme border-4 border border-Theme">
-      <div className="flex flex-row sticky top-0 bg-gray-100">
-        <h2 className="text-4xl font-extrabold pl-4 pt-4 bg-gray-100 min-w-max">
+    <div className="table-wrp block max-h-builder overflow-y-scroll rounded-lg border-l-Gray-100 border-4 border border-gray-100">
+      <div className="flex flex-row sticky top-0 bg-gray-100 ">
+        <h2 className="text-4xl text-gray-800 font-extrabold pl-4 pt-4 pb-2 min-w-max">
           Building Creator
         </h2>
         <div className="grow" />
         <div className="pr-20 pt-4 pl-4  flex min-w-min">
-          <label className="p-1.5">Total Square Feet:</label>
+          <label className="p-1.5 pt-3 text-ThemeLight font-semibold">
+            Total Square Feet:
+          </label>
           <CurrencyInput
             id="validation-example-2-field2"
             placeholder="3,000"
             allowDecimals={false}
-            className={`form-control block p-1.5 m-auto  z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-Theme border-l border border-Theme focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500 `}
+            className={`form-control block p-1.5 m-auto  z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-Theme border-l border border-Theme focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-ThemeLight dark:focus:border-blue-500 `}
             onValueChange={(e) => {
               setBuilding({
                 ...building,
@@ -105,7 +107,7 @@ export function BuildingBuilder(props: BuildingBuilderProps): JSX.Element {
             <th className="px-3 py-2">
               <button
                 type="button"
-                className="text-white bg-Theme hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-1.5 m-2"
+                className="text-ThemeLight bg-Theme hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-1.5 m-2"
                 onClick={() => {
                   let temp = [
                     ...unitList,

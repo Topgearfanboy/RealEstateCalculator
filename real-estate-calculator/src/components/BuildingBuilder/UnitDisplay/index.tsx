@@ -11,7 +11,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
   const { unit, setUnit } = props;
   return (
     <tr>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <CurrencyInput
           id="validation-example-2-field2"
           placeholder="1"
@@ -25,7 +25,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           value={unit.NumberOfUnits}
         />
       </td>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <CurrencyInput
           id="validation-example-2-field2"
           placeholder="2"
@@ -37,7 +37,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           value={unit.Bedrooms}
         />
       </td>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <CurrencyInput
           id="validation-example-2-field2"
           placeholder="1"
@@ -49,7 +49,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           value={unit.Bathrooms}
         />
       </td>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <CurrencyInput
           id="validation-example-2-field2"
           placeholder="$1,000"
@@ -64,7 +64,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           groupSeparator={","}
         />
       </td>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <CurrencyInput
           id="validation-example-2-field2"
           placeholder="$1,000"
@@ -79,7 +79,7 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           groupSeparator={","}
         />
       </td>
-      <td className="px-3 py-10 flex justify-center ">
+      <td className="px-3 py-5 flex justify-center ">
         <input
           type="checkbox"
           className=""
@@ -89,10 +89,10 @@ export function UnitDisplay(props: EntryBoxProps): JSX.Element {
           }}
         />
       </td>
-      <td className="px-3 py-3">
+      <td className="px-3 py-1.5">
         <button
           type="button"
-          className="text-white bg-Theme hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-1.5 m-2"
+          className="text-ThemeLight bg-Theme hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-1.5 m-2"
           onClick={() => {
             setUnit(undefined);
           }}

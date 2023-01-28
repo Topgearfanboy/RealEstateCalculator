@@ -1,4 +1,13 @@
-import { Building, ExpenseCostType, Loan, LoanCostType, Unit } from "./types";
+import {
+  Building,
+  Expense,
+  ExpenseCostType,
+  Expenses,
+  Loan,
+  LoanCostType,
+  Report,
+  Unit,
+} from "./types";
 
 export const defaultUnits = [
   {
@@ -21,7 +30,7 @@ export const defaultUnits = [
   },
 ] as Unit[];
 
-export const emptyBuilding = {
+export const defaultBuilding = {
   BedroomsTotal: 0,
   BathroomsTotal: 0,
   SquareFeetTotal: 0,
@@ -31,7 +40,7 @@ export const emptyBuilding = {
   RealMarketRentTotal: 0,
 } as Building;
 
-export const defaltLoan = {
+export const defaltLoan: Loan = {
   LoanTerm: 10,
   PurchasePrice: "200000",
   DownPayment: "40000",
@@ -39,20 +48,23 @@ export const defaltLoan = {
   InterestRate: "6.543",
   LoanAmount: 80000,
   ClosingCosts: "1000",
-} as Loan;
+  MonthlyPayment: 0,
+};
 
-export const defaultExpenses = {
-  Vacancy: 0,
-  VacancyType: ExpenseCostType.dollars,
-  PropetyManagement: 0,
-  PropetyManagementType: ExpenseCostType.dollars,
-  PropetyTaxes: 0,
-  PropetyTaxesType: ExpenseCostType.dollars,
-  Insurance: 0,
-  InsuranceType: ExpenseCostType.dollars,
-  OwnerPaidUtilities: 0,
-  OwnerPaidUtilitiesType: ExpenseCostType.dollars,
-  Maintenance: 0,
-  MaintenanceType: ExpenseCostType.dollars,
+export const defaultExpenses: Expenses = {
+  Vacancy: { value: 0, type: ExpenseCostType.dollars } as Expense,
+  PropetyManagement: { value: 0, type: ExpenseCostType.dollars } as Expense,
+  PropetyTaxes: { value: 0, type: ExpenseCostType.dollars } as Expense,
+  Insurance: { value: 0, type: ExpenseCostType.dollars } as Expense,
+  OwnerPaidUtilities: { value: 0, type: ExpenseCostType.dollars } as Expense,
+  Maintenance: { value: 0, type: ExpenseCostType.dollars } as Expense,
   ExpensesTotal: 0,
+};
+
+export const defaultReport: Report = {
+  name: "change me",
+  units: defaultUnits,
+  loan: defaltLoan,
+  building: defaultBuilding,
+  expenses: defaultExpenses,
 };

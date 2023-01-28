@@ -48,98 +48,90 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
     setLoan,
   ]);
   return (
-    <div className="rounded-lg border-l-Theme border-4 border border-Theme bg-gray-100 p-2">
-      <h2 className="text-4xl font-extrabold px-2 bg-gray-100">
-        Loan Calculator
-      </h2>
-      <DollarEntryBox
-        label={"Purchase Price:"}
-        value={loan.PurchasePrice}
-        setValue={(e: any) => {
-          setLoan({
-            ...loan,
-            PurchasePrice: e,
-          });
-        }}
-      />
-      <DollarEntryBox
-        label={"Down Payment:"}
-        value={loan.DownPayment}
-        setValue={(e: any) => {
-          setLoan({
-            ...loan,
-            DownPayment: e,
-          });
-        }}
-        type={loan.DownPaymentType}
-        setType={(e: any) => {
-          const newItem = handleConversion(e, loan.DownPayment, 4);
-          setLoan({
-            ...loan,
-            DownPaymentType: e,
-            DownPayment: newItem,
-          });
-        }}
-      />
-      <DollarEntryBox
-        label={"Closing Costs:"}
-        value={loan.ClosingCosts}
-        setValue={(e: any) => {
-          setLoan({
-            ...loan,
-            ClosingCosts: e,
-          });
-        }}
-        type={LoanCostType.dollars}
-      />
-      <DollarEntryBox
-        label={"Interest Rate:"}
-        value={loan.InterestRate}
-        setValue={(e: any) => {
-          setLoan({
-            ...loan,
-            InterestRate: e,
-          });
-        }}
-        type={LoanCostType.percent}
-      />
-      <YearSelector
-        label={"Loan Term:"}
-        value={loan.LoanTerm}
-        setValue={(e: any) => {
-          setLoan({
-            ...loan,
-            LoanTerm: e,
-          });
-        }}
-      />
-      <DollarDisplayBox
-        label={"Loan Amount:"}
-        value={loan.LoanAmount.toFixed(2)}
-      />
-      <DollarDisplayBox
-        label={"Theoretical Future Property Value (3.5%):"}
-        value={(
-          parseFloat(loan.PurchasePrice) *
-          Math.pow(1 + (3.5 * 0.01) / 12, 12 * loan.LoanTerm)
-        ).toFixed(2)}
-      />
-      <DollarDisplayBox
-        label={"Monthly Payment:"}
-        value={Number(loan.MonthlyPayment).toFixed(2)}
-      />
-      <DollarDisplayBox
-        label={"Total Payments:"}
-        value={(loan.MonthlyPayment * loan.LoanTerm * 12).toFixed(2)}
-      />
-      <DollarDisplayBox
-        label={"Total Interest Paid:"}
-        value={(
-          loan.MonthlyPayment * loan.LoanTerm * 12 -
-          loan.LoanAmount
-        ).toFixed(2)}
-      />
-      {/* <DollarEntryBox
+    <div className=" overflow-auto rounded-lg border-l-gray-100 border-4 border border-gray-100  mt-4">
+      <div className="flex flex-row sticky top-0 bg-gray-100 ">
+        <h2 className="text-4xl text-gray-800 font-extrabold pl-4 pt-4 pb-2 min-w-max">
+          Loan Calculator
+        </h2>
+      </div>
+      <div className="px-4">
+        <DollarEntryBox
+          label={"Purchase Price:"}
+          value={loan.PurchasePrice}
+          setValue={(e: any) => {
+            setLoan({
+              ...loan,
+              PurchasePrice: e,
+            });
+          }}
+        />
+        <DollarEntryBox
+          label={"Down Payment:"}
+          value={loan.DownPayment}
+          setValue={(e: any) => {
+            setLoan({
+              ...loan,
+              DownPayment: e,
+            });
+          }}
+          type={loan.DownPaymentType}
+          setType={(e: any) => {
+            const newItem = handleConversion(e, loan.DownPayment, 4);
+            setLoan({
+              ...loan,
+              DownPaymentType: e,
+              DownPayment: newItem,
+            });
+          }}
+        />
+        <DollarEntryBox
+          label={"Closing Costs:"}
+          value={loan.ClosingCosts}
+          setValue={(e: any) => {
+            setLoan({
+              ...loan,
+              ClosingCosts: e,
+            });
+          }}
+          type={LoanCostType.dollars}
+        />
+        <DollarEntryBox
+          label={"Interest Rate:"}
+          value={loan.InterestRate}
+          setValue={(e: any) => {
+            setLoan({
+              ...loan,
+              InterestRate: e,
+            });
+          }}
+          type={LoanCostType.percent}
+        />
+        <YearSelector
+          label={"Loan Term:"}
+          value={loan.LoanTerm}
+          setValue={(e: any) => {
+            setLoan({
+              ...loan,
+              LoanTerm: e,
+            });
+          }}
+        />
+        <DollarDisplayBox
+          label={"Loan Amount:"}
+          value={loan.LoanAmount.toFixed(2)}
+        />
+        <DollarDisplayBox
+          label={"Theoretical Future Property Value (3.5%):"}
+          value={(
+            parseFloat(loan.PurchasePrice) *
+            Math.pow(1 + (3.5 * 0.01) / 12, 12 * loan.LoanTerm)
+          ).toFixed(2)}
+        />
+        <DollarDisplayBox
+          label={"Monthly Payment:"}
+          value={Number(loan.MonthlyPayment).toFixed(2)}
+        />
+        {/* <DollarEntryBox
         label={"Comparison Rate:"}
         value={comparisonInterestRate.toString()}
         setValue={(e: any) => {
@@ -154,6 +146,7 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
           Math.pow(1 + (comparisonInterestRate * 0.01) / 12, 12 * loan.LoanTerm)
         ).toFixed(2)}
       /> */}
+      </div>
     </div>
   );
 }

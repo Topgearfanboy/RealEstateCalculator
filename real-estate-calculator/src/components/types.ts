@@ -30,23 +30,26 @@ export type Building = {
 };
 
 export type Expenses = {
-  Vacancy: number;
-  VacancyType: ExpenseCostType;
-  PropetyManagement: number;
-  PropetyManagementType: ExpenseCostType;
-  PropetyTaxes: number;
-  PropetyTaxesType: ExpenseCostType;
-  Insurance: number;
-  InsuranceType: ExpenseCostType;
-  OwnerPaidUtilities: number;
-  OwnerPaidUtilitiesType: ExpenseCostType;
-  Maintenance: number;
-  MaintenanceType: ExpenseCostType;
+  Vacancy: Expense;
+  PropetyManagement: Expense;
+  PropetyTaxes: Expense;
+  Insurance: Expense;
+  OwnerPaidUtilities: Expense;
+  Maintenance: Expense;
   ExpensesTotal: number;
 };
+
 export type Expense = {
   value: number;
   type: ExpenseCostType;
+};
+
+export type Report = {
+  name: string;
+  expenses: Expenses;
+  units: Unit[];
+  building: Building;
+  loan: Loan;
 };
 
 export enum LoanCostType {

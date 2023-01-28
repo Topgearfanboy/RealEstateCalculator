@@ -1,5 +1,5 @@
 import React from "react";
-import { Building, Expenses, Loan } from "../../types";
+import { Building, Expenses, Loan } from "../../../types";
 import { Row } from "../row";
 interface keyStatsProps {
   expenses: Expenses;
@@ -17,53 +17,49 @@ export function KeyStats(props: keyStatsProps): JSX.Element {
       <div className="grid grid-cols-2 content-start max-w-max px-4">
         <Row
           label="NOI"
-          value={`$${(
-            building.CurrentRentTotal - expenses.ExpensesTotal
-          ).toFixed(2)}`}
+          value={building.RealMarketRentTotal - expenses.ExpensesTotal}
         />
         <Row
           label="Annual NOI"
-          value={`$${(
-            (building.CurrentRentTotal - expenses.ExpensesTotal) *
-            12
-          ).toFixed(2)}`}
+          value={(building.RealMarketRentTotal - expenses.ExpensesTotal) * 12}
         />
         <Row
           label="Cap"
-          value={`${(
-            (((building.CurrentRentTotal - expenses.ExpensesTotal) * 12) /
+          value={
+            (((building.RealMarketRentTotal - expenses.ExpensesTotal) * 12) /
               parseFloat(loan.PurchasePrice)) *
             100
-          ).toFixed(3)}%`}
+          }
+          percentage
         />
         <Row
           label="Monthly Net"
-          value={`$${(
-            building.MarketRentTotal -
+          value={
+            building.RealMarketRentTotal -
             expenses.ExpensesTotal -
             loan.MonthlyPayment
-          ).toFixed(2)}`}
+          }
         />
         <Row
           label="Annualized Net"
-          value={`$${(
-            (building.MarketRentTotal -
+          value={
+            (building.RealMarketRentTotal -
               expenses.ExpensesTotal -
               loan.MonthlyPayment) *
             12
-          ).toFixed(2)}`}
+          }
         />
         <Row
           label="Annualized ROI"
-          value={`${(
-            (((building.MarketRentTotal -
+          value={
+            (((building.RealMarketRentTotal -
               expenses.ExpensesTotal -
               loan.MonthlyPayment) *
               12) /
               (parseFloat(loan.ClosingCosts) +
                 (parseFloat(loan.PurchasePrice) - loan.LoanAmount))) *
             100
-          ).toFixed(2)}%`}
+          }
         />
       </div>
     </div>
