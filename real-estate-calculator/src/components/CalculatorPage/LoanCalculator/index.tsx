@@ -1,7 +1,7 @@
 import React from "react";
 import { DollarDisplayBox } from "../DollarDisplayBox";
 import { DollarEntryBox } from "../DollarEntryBox";
-import { Loan, LoanCostType } from "../types";
+import { Loan, LoanCostType } from "../../types";
 import { YearSelector } from "./YearSelector";
 interface InterestCalculatorProps {
   loan: Loan;

@@ -62,6 +62,7 @@ export const defaultExpenses: Expenses = {
 };
 
 export const defaultReport: Report = {
+  id: 1,
   name: "change me",
   units: defaultUnits,
   loan: defaltLoan,

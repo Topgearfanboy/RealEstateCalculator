@@ -1,18 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Analysis } from "./Analysis";
-import { BuildingBuilder } from "../BuildingBuilder";
+import { BuildingBuilder } from "./BuildingBuilder";
 import {
   defaultUnits,
   defaultBuilding,
   defaltLoan,
   defaultExpenses,
-  defaultReport,
 } from "../defaultData";
-import { ExpensesCalculator } from "../ExpensesCalculator";
-import { LoanCalculator } from "../LoanCalculator";
+import { ExpensesCalculator } from "./ExpensesCalculator";
+import { LoanCalculator } from "./LoanCalculator";
 import { NavBar } from "../navBar";
-import { PropertInfo } from "../PropertyInfo";
+import { PropertInfo } from "./PropertyInfo";
 import { Report } from "../types";
 
 interface InitalState {
@@ -25,41 +24,44 @@ export function CalculatorPage(props: InitalState): JSX.Element {
   const [building, setBuilding] = React.useState(defaultBuilding);
   const [loan, setLoan] = React.useState(defaltLoan);
   const [expenses, setExpenses] = React.useState(defaultExpenses);
+  const [name, setName] = React.useState("Default Name");
   const [report, setReport] = React.useState<Report>();
+  let { id } = useParams();
   React.useEffect(() => {
     if (
-      localStorage.getItem("data") &&
-      localStorage.getItem("data") !== "undefined"
+      localStorage.getItem(id?.toString() ?? "") &&
+      localStorage.getItem(id?.toString() ?? "") !== "undefined"
     ) {
-      console.log(typeof localStorage.getItem("data"));
+      console.log(typeof localStorage.getItem(id?.toString() ?? ""));
       let data: Report = JSON.parse(
-        localStorage.getItem("data") ?? ""
+        localStorage.getItem(id?.toString() ?? "") ?? ""
       ) as Report;
       setUnitList(data.units);
       setBuilding(data.building);
       setLoan(data.loan);
       setExpenses(data.expenses);
+      setName(data.name);
     }
-  }, []);
+  }, [id]);
 
-  let { id } = useParams();
   React.useEffect(() => {
     setReport((oldReport) => ({
-      name: id ?? "",
+      id: oldReport?.id ?? 0,
+      name: name,
       units: unitList,
       expenses: expenses,
       loan: loan,
       building: building,
     }));
-  }, [unitList, expenses, loan, building]);
+  }, [unitList, expenses, loan, building, id, name]);
   React.useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(report));
-  }, [report]);
+    localStorage.setItem(id?.toString() ?? "data", JSON.stringify(report));
+  }, [report, id]);
   return (
     <>
       <NavBar />
       <div className="mt-4 mx-4">
-        <PropertInfo report={report ?? ({} as Report)} />
+        <PropertInfo report={report ?? ({} as Report)} setReport={setReport} />
       </div>
       <div className="flex flex-col xl:flex-row">
         <div>

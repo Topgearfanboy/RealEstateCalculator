@@ -1,8 +1,8 @@
 import React from "react";
 import { DollarDisplayBox } from "../DollarDisplayBox";
 import { ExpenseEntryBox } from "./ExpenseEntryBox";
-import { Building, ExpenseCostType, Expenses } from "../types";
-import { handleConversion } from "../helpers";
+import { Building, ExpenseCostType, Expenses } from "../../types";
+import { handleConversion } from "../../helpers";
 interface InterestCalculatorProps {
   building: Building;
   expenses: Expenses;

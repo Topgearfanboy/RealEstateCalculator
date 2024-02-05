@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "./fullLogo.png";
 export function NavBar(): JSX.Element {
   return (
     <nav
@@ -7,13 +8,9 @@ export function NavBar(): JSX.Element {
     >
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="/" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-6 mr-3 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-xl text-ThemeLight font-semibold whitespace-nowrap dark:text-ThemeLight">
-            Flowbite
+          <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+          <span className="self-center text-xl text-white font-semibold whitespace-nowrap dark:text-white">
+            Investor Calculator
           </span>
         </a>
         <button
@@ -42,17 +39,17 @@ export function NavBar(): JSX.Element {
           <ul className="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
             <li>
               <a
-                href="/"
-                className="block py-2 pr-4 pl-3 text-ThemeLight rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-100 md:p-0 dark:text-gray-400 md:dark:hover:text-ThemeLight dark:hover:bg-gray-700 dark:hover:text-ThemeLight md:dark:hover:bg-transparent"
+                href="/PropertiesPage"
+                className="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-100 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 aria-current="page"
               >
                 Your Properties
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="/FAQ"
-                className="block py-2 pr-4 pl-3 text-ThemeLight rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-ThemeLight dark:hover:bg-gray-700 dark:hover:text-ThemeLight md:dark:hover:bg-transparent"
+                className="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 FAQ
               </a>
@@ -60,7 +57,7 @@ export function NavBar(): JSX.Element {
             <li>
               <a
                 href="/services"
-                className="block py-2 pr-4 pl-3 text-ThemeLight rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-ThemeLight dark:hover:bg-gray-700 dark:hover:text-ThemeLight md:dark:hover:bg-transparent"
+                className="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Services
               </a>
@@ -68,11 +65,11 @@ export function NavBar(): JSX.Element {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-ThemeLight rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-ThemeLight dark:hover:bg-gray-700 dark:hover:text-ThemeLight md:dark:hover:bg-transparent"
+                className="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contact
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

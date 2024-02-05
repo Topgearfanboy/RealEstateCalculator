@@ -1,6 +1,6 @@
 import React from "react";
 import CurrencyInput from "react-currency-input-field";
-import { Building, Unit } from "../types";
+import { Building, Unit } from "../../types";
 import { UnitDisplay } from "./UnitDisplay";
 interface BuildingBuilderProps {
   unitList: Unit[];
@@ -72,7 +72,7 @@ export function BuildingBuilder(props: BuildingBuilderProps): JSX.Element {
         </h2>
         <div className="grow" />
         <div className="pr-20 pt-4 pl-4  flex min-w-min">
-          <label className="p-1.5 pt-3 text-ThemeLight font-semibold">
+          <label className="p-1.5 pt-3 text-gray-800 font-semibold">
             Total Square Feet:
           </label>
           <CurrencyInput

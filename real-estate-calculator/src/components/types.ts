@@ -45,6 +45,7 @@ export type Expense = {
 };
 
 export type Report = {
+  id: number;
   name: string;
   expenses: Expenses;
   units: Unit[];

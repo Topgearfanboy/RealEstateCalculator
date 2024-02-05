@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://alertdesigns.com/static/css/main.b0c1c431.css",
+    "main.js": "https://alertdesigns.com/static/js/main.aedf2489.js",
+    "static/media/background.jpg": "https://alertdesigns.com/static/media/background.f4ecc6965e9e44346533.jpg",
+    "static/media/house.svg": "https://alertdesigns.com/static/media/house.4e7b450d03b3b293bebe73b367b0d95b.svg",
+    "index.html": "https://alertdesigns.com/index.html",
+    "main.b0c1c431.css.map": "https://alertdesigns.com/static/css/main.b0c1c431.css.map",
+    "main.aedf2489.js.map": "https://alertdesigns.com/static/js/main.aedf2489.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0c1c431.css",
+    "static/js/main.aedf2489.js"
+  ]
+}

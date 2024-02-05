@@ -1,6 +1,6 @@
 import React from "react";
 import CurrencyInput from "react-currency-input-field";
-import { LoanCostType } from "../types";
+import { LoanCostType } from "../../types";
 
 interface EntryBoxProps {
   label: string;

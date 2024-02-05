@@ -1,6 +1,6 @@
 import React from "react";
 import CurrencyInput from "react-currency-input-field";
-import { ExpenseCostType } from "../../types";
+import { ExpenseCostType } from "../../../types";
 
 interface EntryBoxProps {
   label: string;
