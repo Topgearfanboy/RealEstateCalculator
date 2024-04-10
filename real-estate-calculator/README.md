@@ -1,6 +1,7 @@
 # Real Estate Calculator Project
 
 Website that allows you to get statistics and keep track of properties statistics.
+Hosted online at: https://real-estate-calculator-ten.vercel.app/
 
 ## Usage
 
