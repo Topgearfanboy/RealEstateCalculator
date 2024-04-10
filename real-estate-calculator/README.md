@@ -1,12 +1,13 @@
 # Real Estate Calculator Project
 
-Website that allows you to get statistics and keep track of properties statistics.
+Website that allows you to get statistics and keep track of properties statistics. \n
 Hosted online at: https://real-estate-calculator-ten.vercel.app/
 
 ## Usage
 
 ```bash
-npx create-react-app --template tailwindcss-typescript
+npm install
+npm start
 ```
 
 ## Credits
