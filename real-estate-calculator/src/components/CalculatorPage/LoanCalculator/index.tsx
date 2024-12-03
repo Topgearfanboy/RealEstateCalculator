@@ -2,7 +2,7 @@ import React from "react";
 import { DollarDisplayBox } from "../DollarDisplayBox";
 import { DollarEntryBox } from "../DollarEntryBox";
 import { Loan, LoanCostType } from "../../types";
-import { YearSelector } from "./YearSelector";
+import { OptionSelector } from "../OptionSelector";
 interface InterestCalculatorProps {
   loan: Loan;
   setLoan: React.Dispatch<React.SetStateAction<Loan>>;
@@ -106,7 +106,7 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
           }}
           type={LoanCostType.percent}
         />
-        <YearSelector
+        <OptionSelector
           label={"Loan Term:"}
           value={loan.LoanTerm}
           setValue={(e: any) => {
@@ -115,17 +115,11 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
               LoanTerm: e,
             });
           }}
+          valueOptions={[10, 15, 20, 30]}
         />
         <DollarDisplayBox
           label={"Loan Amount:"}
           value={loan.LoanAmount.toFixed(2)}
-        />
-        <DollarDisplayBox
-          label={"Theoretical Future Property Value (3.5%):"}
-          value={(
-            parseFloat(loan.PurchasePrice) *
-            Math.pow(1 + (3.5 * 0.01) / 12, 12 * loan.LoanTerm)
-          ).toFixed(2)}
         />
         <DollarDisplayBox
           label={"Monthly Payment:"}

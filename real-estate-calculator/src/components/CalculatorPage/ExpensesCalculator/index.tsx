@@ -175,10 +175,6 @@ export function ExpensesCalculator(
             });
           }}
         />
-        <DollarDisplayBox
-          label={"Total Costs"}
-          value={expenses.ExpensesTotal}
-        />
       </div>
     </div>
   );
