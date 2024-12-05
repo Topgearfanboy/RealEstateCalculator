@@ -2,6 +2,7 @@ import React from "react";
 import CurrencyInput from "react-currency-input-field";
 import { Building, Unit } from "../../types";
 import { UnitDisplay } from "./UnitDisplay";
+import { summarizeBuilding } from "./helpers";
 interface BuildingBuilderProps {
   unitList: Unit[];
   setUnitList: React.Dispatch<React.SetStateAction<Unit[]>>;
@@ -10,44 +11,10 @@ interface BuildingBuilderProps {
 }
 export function BuildingBuilder(props: BuildingBuilderProps): JSX.Element {
   const { unitList, setUnitList, building, setBuilding } = props;
+
   React.useEffect(() => {
-    let BedroomsTotal = 0;
-    let BathroomsTotal = 0;
-    let SquareFeetTotal = 0;
-    let CurrentRentTotal = 0;
-    let MarketRentTotal = 0;
-    let RealCurrentRentTotal = 0;
-    let RealMarketRentTotal = 0;
-    unitList.forEach((element) => {
-      BedroomsTotal += (element.Bedrooms ?? 0) * (element.NumberOfUnits ?? 0);
-      BathroomsTotal += (element.Bathrooms ?? 0) * (element.NumberOfUnits ?? 0);
-      SquareFeetTotal +=
-        (element.SquareFeet ?? 0) * (element.NumberOfUnits ?? 0);
-      CurrentRentTotal +=
-        (element.CurrentRent ?? 0) * (element.NumberOfUnits ?? 0);
-      MarketRentTotal +=
-        (element.MarketRent ?? 0) * (element.NumberOfUnits ?? 0);
-      if (!element.OwnerOccupied) {
-        RealCurrentRentTotal +=
-          (element.CurrentRent ?? 0) * (element.NumberOfUnits ?? 0);
-        RealMarketRentTotal +=
-          (element.MarketRent ?? 0) * (element.NumberOfUnits ?? 0);
-      }
-    });
-    setBuilding(
-      (building) =>
-        ({
-          ...building,
-          BedroomsTotal: BedroomsTotal,
-          BathroomsTotal: BathroomsTotal,
-          SquareFeetTotal: SquareFeetTotal,
-          CurrentRentTotal: CurrentRentTotal,
-          MarketRentTotal: MarketRentTotal,
-          RealCurrentRentTotal: RealCurrentRentTotal,
-          RealMarketRentTotal: RealMarketRentTotal,
-        } as Building)
-    );
-  }, [setBuilding, unitList]);
+    setBuilding(summarizeBuilding(unitList, building));
+  }, [building, setBuilding, unitList]);
   let units = unitList.map((unit, i) => (
     <UnitDisplay
       key={i}

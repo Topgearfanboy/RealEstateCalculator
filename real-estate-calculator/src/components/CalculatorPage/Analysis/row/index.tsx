@@ -12,7 +12,6 @@ export function Row(props: BuildingBuilderProps): JSX.Element {
     <>
       <div className="text-left pr-4">{label}</div>
       <div className="text-right">
-        {/* <p>{value}</p> */}
         {!percentage ? (
           <CurrencyInput
             className={"bg-white"}

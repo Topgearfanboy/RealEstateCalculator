@@ -3,25 +3,14 @@ import { DollarDisplayBox } from "../DollarDisplayBox";
 import { DollarEntryBox } from "../DollarEntryBox";
 import { Loan, LoanCostType } from "../../types";
 import { OptionSelector } from "../OptionSelector";
+import { handleConversion } from "./helpers";
 interface InterestCalculatorProps {
   loan: Loan;
   setLoan: React.Dispatch<React.SetStateAction<Loan>>;
 }
 export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
   const { loan, setLoan } = props;
-  const handleConversion = function (
-    e: any,
-    converting: string,
-    trailingDigits: number
-  ) {
-    return e === LoanCostType.dollars
-      ? (parseFloat(converting) * 0.01 * parseFloat(loan.PurchasePrice))
-          .toFixed(0)
-          .replace(/\.0+$/, "")
-      : ((parseFloat(converting) / parseFloat(loan.PurchasePrice)) * 100)
-          .toFixed(trailingDigits)
-          .replace(/\.0+$/, "");
-  };
+
   React.useEffect(() => {
     const loanAmount =
       loan.DownPaymentType === LoanCostType.percent
@@ -76,7 +65,7 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
           }}
           type={loan.DownPaymentType}
           setType={(e: any) => {
-            const newItem = handleConversion(e, loan.DownPayment, 4);
+            const newItem = handleConversion(e, loan.DownPayment, 4, loan);
             setLoan({
               ...loan,
               DownPaymentType: e,
