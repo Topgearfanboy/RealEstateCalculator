@@ -1,4 +1,4 @@
-import { Loan, LoanCostType } from "../../types";
+import { Loan, CostType } from "../../types";
 
 export const handleConversion = function (
   e: any,
@@ -6,7 +6,7 @@ export const handleConversion = function (
   trailingDigits: number,
   loan: Loan
 ) {
-  return e === LoanCostType.dollars
+  return e === CostType.dollars
     ? (parseFloat(converting) * 0.01 * parseFloat(loan.PurchasePrice))
         .toFixed(0)
         .replace(/\.0+$/, "")

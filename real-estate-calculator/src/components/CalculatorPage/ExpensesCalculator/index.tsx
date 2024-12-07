@@ -1,16 +1,13 @@
 import React from "react";
-import { DollarDisplayBox } from "../DollarDisplayBox";
 import { ExpenseEntryBox } from "./ExpenseEntryBox";
 import { Building, ExpenseCostType, Expenses } from "../../types";
 import { handleConversion } from "../../helpers";
-interface InterestCalculatorProps {
+interface LoanCalculatorProps {
   building: Building;
   expenses: Expenses;
   setExpenses: React.Dispatch<React.SetStateAction<Expenses>>;
 }
-export function ExpensesCalculator(
-  props: InterestCalculatorProps
-): JSX.Element {
+export function ExpensesCalculator(props: LoanCalculatorProps): JSX.Element {
   const { expenses, setExpenses, building } = props;
 
   React.useEffect(() => {

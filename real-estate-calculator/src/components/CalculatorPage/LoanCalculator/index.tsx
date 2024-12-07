@@ -1,19 +1,19 @@
 import React from "react";
 import { DollarDisplayBox } from "../DollarDisplayBox";
 import { DollarEntryBox } from "../DollarEntryBox";
-import { Loan, LoanCostType } from "../../types";
+import { Loan, CostType } from "../../types";
 import { OptionSelector } from "../OptionSelector";
 import { handleConversion } from "./helpers";
-interface InterestCalculatorProps {
+interface LoanCalculatorProps {
   loan: Loan;
   setLoan: React.Dispatch<React.SetStateAction<Loan>>;
 }
-export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
+export function LoanCalculator(props: LoanCalculatorProps): JSX.Element {
   const { loan, setLoan } = props;
 
   React.useEffect(() => {
     const loanAmount =
-      loan.DownPaymentType === LoanCostType.percent
+      loan.DownPaymentType === CostType.percent
         ? parseFloat(loan.PurchasePrice) -
           parseFloat(loan.DownPayment) * 0.01 * parseFloat(loan.PurchasePrice)
         : parseFloat(loan.PurchasePrice) - parseFloat(loan.DownPayment);
@@ -34,6 +34,7 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
     loan.InterestRate,
     loan.LoanTerm,
     loan.PurchasePrice,
+    loan.ClosingCostsType,
     setLoan,
   ]);
   return (
@@ -82,7 +83,15 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
               ClosingCosts: e,
             });
           }}
-          type={LoanCostType.dollars}
+          type={loan.ClosingCostsType}
+          setType={(e: any) => {
+            const newItem = handleConversion(e, loan.ClosingCosts, 4, loan);
+            setLoan({
+              ...loan,
+              ClosingCostsType: e,
+              ClosingCosts: newItem,
+            });
+          }}
         />
         <DollarEntryBox
           label={"Interest Rate:"}
@@ -93,7 +102,7 @@ export function LoanCalculator(props: InterestCalculatorProps): JSX.Element {
               InterestRate: e,
             });
           }}
-          type={LoanCostType.percent}
+          type={CostType.percent}
         />
         <OptionSelector
           label={"Loan Term:"}

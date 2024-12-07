@@ -1,12 +1,13 @@
 export type Loan = {
   PurchasePrice: string;
   DownPayment: string;
-  DownPaymentType: LoanCostType;
+  DownPaymentType: CostType;
   LoanAmount: number;
   InterestRate: string;
   LoanTerm: number;
   MonthlyPayment: number;
   ClosingCosts: string;
+  ClosingCostsType: CostType;
 };
 
 export type Unit = {
@@ -53,7 +54,7 @@ export type Report = {
   loan: Loan;
 };
 
-export enum LoanCostType {
+export enum CostType {
   percent = "Percent",
   dollars = "Dollars",
 }

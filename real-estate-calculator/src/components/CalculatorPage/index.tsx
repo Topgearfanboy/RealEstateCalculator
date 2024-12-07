@@ -14,10 +14,7 @@ import { NavBar } from "../navBar";
 import { PropertInfo } from "./PropertyInfo";
 import { Report } from "../types";
 
-interface InitalState {
-  //   report: Report;
-  //   setReport: Function;
-}
+interface InitalState {}
 
 export function CalculatorPage(props: InitalState): JSX.Element {
   const [unitList, setUnitList] = React.useState(defaultUnits);
@@ -32,7 +29,6 @@ export function CalculatorPage(props: InitalState): JSX.Element {
       localStorage.getItem(id?.toString() ?? "") &&
       localStorage.getItem(id?.toString() ?? "") !== "undefined"
     ) {
-      console.log(typeof localStorage.getItem(id?.toString() ?? ""));
       let data: Report = JSON.parse(
         localStorage.getItem(id?.toString() ?? "") ?? ""
       ) as Report;

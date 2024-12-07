@@ -1,6 +1,6 @@
 import React from "react";
 import CurrencyInput from "react-currency-input-field";
-import { LoanCostType } from "../../types";
+import { CostType } from "../../types";
 
 interface EntryBoxProps {
   label: string;
@@ -18,7 +18,7 @@ export function DollarEntryBox(props: EntryBoxProps): JSX.Element {
       <p className="pr-2 min-w-min	">{label}</p>
       <div className="grow" />
       <div className="relative">
-        {type === LoanCostType.percent ? (
+        {type === CostType.percent ? (
           <CurrencyInput
             id="validation-example-2-field"
             placeholder="3.452%"
@@ -59,8 +59,8 @@ export function DollarEntryBox(props: EntryBoxProps): JSX.Element {
                 }
               }}
             >
-              <option value={LoanCostType.dollars}>$</option>
-              <option value={LoanCostType.percent}>%</option>
+              <option value={CostType.dollars}>$</option>
+              <option value={CostType.percent}>%</option>
             </select>
           </div>
         )}

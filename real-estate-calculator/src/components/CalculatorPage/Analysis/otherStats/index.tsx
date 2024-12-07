@@ -21,7 +21,7 @@ export function OtherStats(props: keyStatsProps): JSX.Element {
           value={loan.MonthlyPayment * loan.LoanTerm * 12}
         />
         <Row
-          label="Total Interest Paid:"
+          label="Total Interest:"
           value={loan.MonthlyPayment * loan.LoanTerm * 12 - loan.LoanAmount}
         />
       </div>
