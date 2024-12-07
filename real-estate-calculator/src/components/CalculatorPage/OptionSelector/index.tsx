@@ -10,7 +10,6 @@ interface OptionSelectorProps {
 
 export function OptionSelector(props: OptionSelectorProps): JSX.Element {
   const { label, setValue, valueOptions, value } = props;
-  console.log(valueOptions);
   return (
     <div className="flex items-center">
       <p className="pr-2">{label}</p>

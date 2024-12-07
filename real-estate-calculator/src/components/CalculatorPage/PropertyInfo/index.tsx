@@ -1,11 +1,9 @@
-import { Report } from "../../types";
-
 interface BuildingBuilderProps {
-  report: Report;
-  setReport: Function;
+  name: string;
+  setName: Function;
 }
 export function PropertInfo(props: BuildingBuilderProps): JSX.Element {
-  const { report, setReport } = props;
+  const { name, setName } = props;
 
   return (
     <div className=" overflow-auto rounded-lg border-l-gray-100 border-4 border border-gray-100  mt-4">
@@ -14,9 +12,9 @@ export function PropertInfo(props: BuildingBuilderProps): JSX.Element {
           Report Name: {/*{report.name}*/}
           <input
             className="bg-gray-100 focus:border focus:border-Theme"
-            value={report.name}
+            value={name}
             onChange={(e) => {
-              setReport({ ...report, name: e.target.value } as Report);
+              setName(e.target.value);
             }}
           />
         </h2>

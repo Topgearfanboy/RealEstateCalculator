@@ -61,7 +61,7 @@ export function CalculatorPage(props: InitalState): JSX.Element {
     <>
       <NavBar />
       <div className="mt-4 mx-4">
-        <PropertInfo report={report ?? ({} as Report)} setReport={setReport} />
+        <PropertInfo name={name} setName={setName} />
       </div>
       <div className="flex flex-col xl:flex-row">
         <div>
